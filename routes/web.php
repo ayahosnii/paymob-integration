@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('checkout');
 });
+
+
+\Illuminate\Support\Facades\Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/credit',[\App\Http\Controllers\CreditController::class, 'credit'])->name('credit');
+Route::get('/callback',[\App\Http\Controllers\CreditController::class, 'callback']);
+
